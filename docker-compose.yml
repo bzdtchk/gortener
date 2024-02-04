@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  app:
+    restart: unless-stopped
+    container_name: gortener_app
+    build:
+      context: .
+      target: prod
+    ports:
+      - "80:8080"
+    volumes:
+      - ./:/go/src/app/

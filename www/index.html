@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zkracovač odkazů | Zkracenej.link</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-cyan-500 to-blue-500">
+<div class="flex basis-full items-center justify-center h-screen">
+    <form id="form" class="bg-white w-auto lg:w-2/4 shadow-md rounded px-16 pt-12 pb-16 mb-4 w-25">
+        <h1 class="text-3xl font-bold mb-12 text-center">Zkracovač odkazů</h1>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="destination_url">
+                Odkaz ke zkrácení
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                   id="destination_url" name="destination_url" type="text" placeholder="https://google.com"
+                   autocomplete="off">
+        </div>
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="slug">
+                Vlastní zkratka (např. google-odkaz)
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                   id="slug" name="slug" type="text" placeholder="muj-odkaz" autocomplete="off" pattern="^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*$" title="Zadejte pouze alfanumerické znaky">
+        </div>
+        <div class="flex items-center justify-center mb-6">
+            <button class="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-700 hover:to-blue-900 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    type="submit">
+                Zkrátit
+            </button>
+        </div>
+        <p id="result-error" style="display: none;"></p>
+        <p id="result-success" style="display: none;">
+            <span class="font-bold">Váš zkrácený odkaz:</span><br>
+            <a class="text-blue-600 dark:text-blue-500 hover:underline" href="javascript:void(0);" id="link"></a><br>
+            <span class="text-sm italic">Klikněte na odkaz pro zkopírování</span>
+        </p>
+    </form>
+</div>
+<script src="shorten.js"></script>
+</body>
+</html>
